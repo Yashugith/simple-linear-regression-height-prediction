@@ -24,3 +24,11 @@ conda activate venv/
 ......
 pip install -r requirement.txt
 ......
+
+## - Git-Clone
+
+## - Git-Config
+
+## - Git-Commit
+
+## - Git-Push
