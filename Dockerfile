@@ -2,13 +2,10 @@ FROM python:3.8
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY . /app
+
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+EXPOSE 8000
 
-# Render sets PORT automatically
-EXPOSE $PORT
-
-# Run using Gunicorn
-CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
+CMD gunicorn --workers=1 --bind 0.0.0.0:8000 app:app
