@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome - Height Prediction</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 40px;
+            width: 450px;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .slide-out {
+            animation: slideOut 0.8s forwards ease-in-out;
+        }
+
+        @keyframes slideOut {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            background: #004aad;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00357a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="welcomeBox">
+        <h1>Welcome!</h1>
+        <p>Predict a person's height from weight using Machine Learning.</p>
+
+        <button id="startBtn">Start Prediction</button>
+    </div>
+
+    <script>
+        document.getElementById("startBtn").onclick = function () {
+            // Add animation class
+            document.getElementById("welcomeBox").classList.add("slide-out");
+
+            // Wait for animation to finish, then redirect
+            setTimeout(function () {
+                window.location.href = "{{ url_for('home') }}";
+            }, 800);
+        };
+    </script>
+
+</body>
+
+</html>

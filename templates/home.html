@@ -1,3 +1,81 @@
-<h1>
-    HELLO WORLD
-</h1>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Height Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #441646;
+            padding: 40px;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px #a27e7e;
+            text-align: center;
+
+            /* Slide-in animation */
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        input {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: green;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Height Prediction</h1>
+
+        <form action="{{ url_for('predict') }}" method="post">
+            <label>Enter Weight (kg):</label><br>
+            <input type="number" name="weight" required step="any"><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <br>
+
+        <h3>{{ prediction_text | safe }}</h3>
+    </div>
+
+</body>
+
+</html>
